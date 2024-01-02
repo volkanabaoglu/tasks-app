@@ -1,13 +1,34 @@
 import "../styles/taskCreate.css"
-function TaskCreate() {
+import { useState } from "react";
+
+
+function TaskCreate({onCreate}) {
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+
+    const handleChangeTitle = (e) =>{
+        setTitle(e.target.value);
+    }
+
+    const handleChangeContent  = (e) =>{
+        setContent(e.target.value)
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        onCreate(title,content);
+        setTitle("");
+        setContent("");
+    }
+
     return ( <div className="task-form-all">
         <h3>Enter a Task !</h3>
         <form className="task-form">
             <label>Title</label>
-            <input type="text" />
+            <input value={title} onChange={handleChangeTitle}/>
             <label>Content</label>
-            <textarea />
-            <button>Create</button>
+            <textarea value={content} onChange={handleChangeContent} />
+            <button onClick={handleSubmit} >Create</button>
         </form>
     </div> );
 }

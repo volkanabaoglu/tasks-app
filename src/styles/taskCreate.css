@@ -13,11 +13,11 @@ label{
     width: 450px;
 }
 
-h3{
+.app-h3{
     padding-left: 160px;
 }
 
-button {
+.task-create-button {
     padding: 10px;
     background-color: rgb(98, 206, 112);
     border-radius: 20px;

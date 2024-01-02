@@ -22,13 +22,13 @@ function TaskCreate({onCreate}) {
     }
 
     return ( <div className="task-form-all">
-        <h3>Enter a Task !</h3>
+        <h3 className="app-h3">Enter a Task !</h3>
         <form className="task-form">
             <label>Title</label>
             <input value={title} onChange={handleChangeTitle}/>
             <label>Content</label>
             <textarea value={content} onChange={handleChangeContent} />
-            <button onClick={handleSubmit} >Create</button>
+            <button className="task-create-button" onClick={handleSubmit} >Create</button>
         </form>
     </div> );
 }

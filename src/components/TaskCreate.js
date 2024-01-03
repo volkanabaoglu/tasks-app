@@ -2,9 +2,9 @@ import "../styles/taskCreate.css"
 import { useState } from "react";
 
 
-function TaskCreate({onCreate}) {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+function TaskCreate({onCreate , task , editState}) {
+    const [title, setTitle] = useState(editState ? task.title : "");
+    const [content, setContent] = useState(editState ? task.content : "");
 
     const handleChangeTitle = (e) =>{
         setTitle(e.target.value);

@@ -6,6 +6,10 @@ label{
     display: flex;
     flex-direction: column;
 }
+.task-edit-form{
+    display: flex;
+    flex-direction: column;
+}
 
 .task-form-all{
     display: flex;
@@ -23,6 +27,14 @@ label{
     border-radius: 20px;
     font-size: 20px;
 }
+
+.task-edit-button {
+    padding: 8px;
+    background-color: violet;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
 
 input{
     padding: 10px;

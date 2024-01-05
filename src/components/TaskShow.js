@@ -1,7 +1,7 @@
 import "../styles/taskShow.css";
 import { useState } from "react";
 import TaskCreate from "./TaskCreate";
-function TaskShow({ task, onDelete }) {
+function TaskShow({ task, onDelete , onUpdate}) {
   const [editState, setEditState] = useState(false);
 
   const handleDeleteClick = () => {
@@ -11,11 +11,18 @@ function TaskShow({ task, onDelete }) {
   const handleEditClick = () => {
     setEditState(true);
   };
+
+  const handleSubmit = (id,newTitle,newContent) => {
+    setEditState(false);
+    onUpdate(id,newTitle,newContent);
+  };
+
+  
   return (
     <>
       {editState ? (
         <div>
-          <TaskCreate task={task} editState={editState} />
+          <TaskCreate task={task} editState={editState} onTimeUpdate={handleSubmit}/>
         </div>
       ) : (
         <div className="task-show">

@@ -1,7 +1,7 @@
 import "../styles/taskCreate.css";
 import { useState } from "react";
 
-function TaskCreate({ onCreate, task, editState }) {
+function TaskCreate({ onCreate, task, editState, onTimeUpdate }) {
   const [title, setTitle] = useState(editState ? task.title : "");
   const [content, setContent] = useState(editState ? task.content : "");
 
@@ -15,7 +15,12 @@ function TaskCreate({ onCreate, task, editState }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(title, content);
+    if (editState) {
+      onTimeUpdate(task.id, title, content);
+    } else {
+      onCreate(title, content);
+    }
+
     setTitle("");
     setContent("");
   };
